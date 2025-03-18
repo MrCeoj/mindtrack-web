@@ -2,35 +2,49 @@
   import Login from "./Login.svelte";
   import Views from "./Views/Views.svelte";
 
-  let isLogged = $state(false);
+  let isLogged = false;
 
   function onLogin() {
     isLogged = true;
   }
 
+  function onLogout() {
+    isLogged = false;
+  }
 </script>
 
-<div class="phone-ui">
-  <div class="phone-frame">
-    {#if isLogged}
-      <Views />
-    {:else}
-      <Login {onLogin}/>
-    {/if}
+<div class="phone-container">
+  <div class="phone-ui">
+    <div class="phone-frame">
+      {#if isLogged}
+        <Views {onLogout}/>
+      {:else}
+        <Login {onLogin}/>
+      {/if}
+    </div>
   </div>
 </div>
 
 <style>
+  .phone-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 50%;
+    width: 375px;
+    height: 667px;
+    z-index: 100;
+  }
+
   .phone-ui {
-    width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .phone-frame {
-    width: 375px; /* Ancho típico de un teléfono */
-    height: 667px; /* Alto típico de un teléfono */
+    width: 375px;
+    height: 667px;
     border: 16px solid black;
     border-radius: 36px;
     background-color: white;
@@ -45,12 +59,10 @@
 
   @media (max-width: 768px) {
     .phone-frame {
-      width: 100%;
+      width: 320px;
       height: 100%;
-      border: none;
-      border-radius: 0;
-      padding: 0;
       box-shadow: none;
+      max-height: 600px;
     }
   }
 </style>

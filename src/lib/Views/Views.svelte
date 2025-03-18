@@ -1,19 +1,21 @@
-<script>
+<script lang="ts">
   let currentView = $state("groups");
   import Groups from "./Groups.svelte";
   import Profile from "./Profile.svelte";
   import { Icon, UserGroup, UserCircle } from "svelte-hero-icons";
 
-  function changeView(view) {
+  function changeView(view: string) {
     currentView = view;
   }
+
+  let {onLogout} = $props();
 </script>
 
 <div class="flex flex-col relative min-h-full">
   {#if currentView === "groups"}
     <Groups />
   {:else if currentView === "profile"}
-    <Profile /> 
+    <Profile {onLogout}/> 
   {/if}
   <div
     class="sticky bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200"
@@ -22,7 +24,7 @@
       <button
         type="button"
         class="inline-flex flex-col items-center justify-center px-5 group"
-        on:click={() => changeView("groups")}
+        onclick={() => changeView("groups")}
       >
         <Icon
           src={UserGroup}
@@ -39,7 +41,7 @@
       <button
         type="button"
         class="inline-flex flex-col items-center justify-center px-5 group"
-        on:click={() => changeView("profile")}
+        onclick={() => changeView("profile")}
       >
         <Icon
           src={UserCircle}

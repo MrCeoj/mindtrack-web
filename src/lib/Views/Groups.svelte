@@ -64,7 +64,7 @@
   <Group {selectedGroup} {desselectGroup} />
 {:else}
   <div class="flex flex-col flex-1 min-h-full">
-    <h1 class="text-2xl font-bold text-center my-5 min-h-full">Mis Grupos</h1>
+    <h1 class="text-2xl font-bold text-center my-5 min-h-full text-dark-bg">Mis Grupos</h1>
     <div class="flex flex-col gap-5 mb-5">
       {#each groups as group}
         <div

@@ -10,7 +10,6 @@
     setTimeout(() => {
       loading = false;
       onLogin();
-      console.log("Logged in!");
     }, 500);
   };
 </script>
