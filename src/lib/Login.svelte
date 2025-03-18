@@ -11,7 +11,7 @@
       loading = false;
       onLogin();
       console.log("Logged in!");
-    }, 1000);
+    }, 500);
   };
 </script>
 
@@ -29,7 +29,7 @@
       class="h-[50px] bg-slate-300 rounded mb-2.5 p-1 pl-2.5 pr-5"
       placeholder="Ingrese su correo"
       type="email"
-      value="javier.lopez@mail.com"
+      value="juan.perez@mail.com"
       color="#2F031A"
       disabled
     />

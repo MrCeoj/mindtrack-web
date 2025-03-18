@@ -1,25 +1,19 @@
 <script lang="ts">
-  import Login from "./Login.svelte"; // Asegúrate de tener este componente creado
+  import Login from "./Login.svelte";
+  import Views from "./Views/Views.svelte";
 
   let isLogged = $state(false);
-
-  let currentView = $state("groups");
-
-  $effect(() => {
-    console.log("parent", isLogged);
-  });
 
   function onLogin() {
     isLogged = true;
   }
 
-  
 </script>
 
 <div class="phone-ui">
   <div class="phone-frame">
     {#if isLogged}
-      <h1>¡Bienvenido!</h1>
+      <Views />
     {:else}
       <Login {onLogin}/>
     {/if}
